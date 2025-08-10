@@ -1,4 +1,4 @@
-import { Layout } from "../components/Layout"
+import { Layout } from "../components/Layout/Layout"
 
 const Register = () => {
   return (
@@ -8,4 +8,4 @@ const Register = () => {
   )
 }
 
-export {Register}
+export { Register }
