@@ -1,4 +1,5 @@
 import { Layout } from "../components/Layout/Layout"
+import { Link } from "react-router-dom"
 
 const PageNotFound = () => {
   return (
@@ -12,6 +13,8 @@ const PageNotFound = () => {
           <p >
             Puede que el enlace esté roto o que el producto ya no exista.
           </p>
+
+          <Link to="/">Ir a inicio</Link>
         </div>
       </Layout>
 

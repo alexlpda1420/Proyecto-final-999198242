@@ -1,27 +1,77 @@
+import { use, useState } from "react"
 import { Layout } from "../components/Layout/Layout"
 
 const Register = () => {
+
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState("")
+  const [success, setSuccess] = useState("")
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setError("")
+    setSuccess("")
+
+    if (!username || !email || !password) {
+      setError("Debes completar todos los campos")
+      return
+    }
+  
+    const newUser = {
+      username,
+      email,
+      password
+    }
+
+    console.log(newUser)
+    setSuccess("Usuario registrado")
+
+    setUsername("")
+    setEmail("")
+    setPassword("")
+  }
+
   return (
     <Layout>
       <h1>Hola desde register</h1>
       <h1>Registrate</h1>
 
       <section>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <label>Username:</label>
-            <input type="text" />
+            <input type="text"
+              onChange={(e) => setUsername(e.target.value)}
+              value={ username }
+            />
           </div>
           <div>
             <label>Correo electrónico:</label>
-            <input type="email" />
+            <input type="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
           </div>
           <div>
             <label>Contraseña:</label>
-            <input type="password" />
+            <input type="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
           </div>
           <button>Ingresar</button>
         </form>
+
+        {
+         error && <p style={{ color: "red" }}>{error}</p>
+        }
+        {
+          success && <p style={{ color: "green" }}>{success}</p>
+        }
+
+
       </section>
     </Layout>
   )
