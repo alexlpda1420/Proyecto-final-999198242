@@ -1,9 +1,9 @@
 
 import { Layout } from "../components/Layout/Layout"
 import { useEffect, useState } from "react"
+import { useAuth } from "../context/UserContext"
 const Home = () => {
   const [products, setProducts] = useState([])
-  const [user, setUser] = useState(true)
   const [productToEdit, setProductToEdit] = useState(null)
   const [showPopup, setShowPopup] = useState(null)
   const [titleEdit, setTitleEdit] = useState("")
@@ -11,6 +11,8 @@ const Home = () => {
   const [descriptionEdit, setDescriptionEdit] = useState("")
   const [categoryEdit, setCategoryEdit] = useState("")
   const [imageEdit, setImageEdit] = useState("")
+  const { user } = useAuth()
+  
 
 
   const fetchingProducts = async () => {
