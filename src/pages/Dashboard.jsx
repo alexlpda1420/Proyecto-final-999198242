@@ -51,44 +51,74 @@ const handleSubmit = async (e) => {
 
   return (
     <Layout>
-      <h1>Panel de Administracion</h1>
+      <div className="container mt-5">
+        <h1 className="text-center mb-4">Panel de Administración</h1>
 
-      <section>
-        <h2>Cargar nuevo producto</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label>Nombre del producto:</label>
-            <input type="text" name="name" onChange={(e) => setName(e.target.value)} value={name} />
+        <div className="row justify-content-center">
+          <div className="col-md-8 col-lg-6">
+            <div className="card shadow-sm border-0">
+              <div className="card-body p-4">
+                <h4 className="mb-4 text-center">Cargar nuevo producto</h4>
+
+                {error && (
+                  <div className="alert alert-danger text-center py-2">{error}</div>
+                )}
+
+                <form onSubmit={handleSubmit}>
+                  <div className="mb-3">
+                    <label className="form-label">Nombre del producto:</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      name="name"
+                      onChange={(e) => setName(e.target.value)}
+                      value={name}
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Precio:</label>
+                    <input
+                      type="number"
+                      className="form-control"
+                      name="price"
+                      onChange={(e) => setPrice(e.target.value)}
+                      value={price}
+                    />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Descripción:</label>
+                    <textarea
+                      className="form-control"
+                      name="description"
+                      rows="4"
+                      onChange={(e) => setDescription(e.target.value)}
+                      value={description}
+                    ></textarea>
+                  </div>
+
+                  <div className="d-grid">
+                    <button type="submit" className="btn btn-success">
+                      Guardar Producto
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            {product && (
+              <div className="card mt-4 shadow-sm border-0">
+                <div className="card-body">
+                  <h5>{product.title}</h5>
+                  <p className="text-muted">${product.price}</p>
+                  <p>{product.description}</p>
+                </div>
+              </div>
+            )}
           </div>
-
-          <div>
-            <label>Precio: </label>
-            <input type="number" name="price" onChange={(e) => setPrice(e.target.value)} value={price} />
-          </div>
-
-          <div>
-            <label>Descripcion: </label>
-            <textarea name="description" rows="4"
-              onChange={(e) => setDescription(e.target.value)}
-            value={description}></textarea>
-          </div>
-
-          {
-            error && <p className="error">{error} </p>
-          }
-
-          <button>Guardar Producto</button>
-
-        </form>
-
-        {
-          product && <div>
-            <h3>{product.title}</h3>
-            <p>${product.price}</p>
-            <p>{ product.description}</p>
-          </div>
-        }
-      </section>
+        </div>
+      </div>
     </Layout>
   )
 }
