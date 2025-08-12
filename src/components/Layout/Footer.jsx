@@ -5,7 +5,7 @@ const Footer = () => {
          
         <h2>©Copyright - Alexis Roldan - 2025</h2>
 
-        <div class="links">
+        <div>
 
             <a href="https://www.facebook.com/alexlpda1420" target="_blank">Facebook</a>
             <a href="https://x.com/aeroldan7" target="_blank">X</a>

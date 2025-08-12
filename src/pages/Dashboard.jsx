@@ -13,6 +13,7 @@ const handleSubmit = async (e) => {
 
   if (!name || !price || !description) {
     setError("Debes completar los campos")
+    return
   }
 
   if (name.length < 3) {
@@ -30,7 +31,7 @@ const handleSubmit = async (e) => {
     image: ""
   }
 
-  const response = await fetch("https//fakestoreapi.com/products", {
+  const response = await fetch("https://fakestoreapi.com/products", { 
     method: "POST",
     headers: {
       "Content-Type": "application/json"
