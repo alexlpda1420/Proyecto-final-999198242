@@ -1,7 +1,10 @@
-import { useState } from "react"
+
 import { Link } from "react-router-dom"
+import { useAuth } from "../../context/UserContext"
 const Header = () => {
-  const [user, setUser] = useState(true)
+
+  const { user } = useAuth()
+  
   return (
   
     <header>
