@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Layout } from "../components/Layout/Layout";
 import { useAuth } from "../context/UserContext";
+import logo from "../assets/images/Virtua-Tienda.webp"
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -114,7 +115,7 @@ const Home = () => {
         <section className="container my-4 text-center">
           <h1 className="mb-3">Bienvenido a Virtua-Tienda</h1>
           <img
-            src="/src/assets/images/virtua-tienda.webp"
+            src={logo}
             alt="Nuestra Tienda"
             className="mx-auto mb-4"
             style={{
