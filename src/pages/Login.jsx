@@ -35,6 +35,7 @@ const Login = () => {
 
                 {/* Solo para referencia temporal de credenciales */}
                 <div className="alert alert-info text-center py-2">
+                  <h6>Credenciales de prueba:</h6>
                   Usuario: hopkins <br /> Contraseña: William56$hj
                 </div>
 
