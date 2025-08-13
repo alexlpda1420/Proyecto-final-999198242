@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { Layout } from "../components/Layout/Layout";
 import { useAuth } from "../context/UserContext";
-import logo from "../assets/images/Virtua-Tienda.webp"
+import { FaSearch } from 'react-icons/fa';
+
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -115,7 +116,7 @@ const Home = () => {
         <section className="container my-4 text-center">
           <h1 className="mb-3">Bienvenido a Virtua-Tienda</h1>
           <img
-            src={logo}
+            src="/src/assets/images/virtua-tienda.webp"
             alt="Nuestra Tienda"
             className="mx-auto mb-4"
             style={{
@@ -141,7 +142,7 @@ const Home = () => {
             </div>
             <div className="col-md-4">
               <h3>💳 Pagos seguros</h3>
-              <p>Trabajamos con plataformas que garantizan tu seguridad.</p>
+              <p >Trabajamos con plataformas que garantizan tu seguridad.</p>
             </div>
             <div className="col-md-4">
               <h3>📞 Atención personalizada</h3>
@@ -149,17 +150,24 @@ const Home = () => {
             </div>
           </div>
         </section>
-
+        <h2 className="text-center mb-4">Nuestros productos</h2> 
+        <p className="text-center mb-4">Elegí entre nuestras categorías más populares.</p>
         {/* Buscador */}
-        <section className="container mb-4">
-          <input
-            className="form-control"
-            type="search"
-            placeholder="Buscar productos..."
-            value={find}
-            onChange={(e) => setFind(e.target.value)}
-          />
-        </section>
+<section className="container mb-4 d-flex justify-content-center">
+      <div className="input-group w-75">
+        <input
+          className="form-control"
+          type="search"
+          placeholder="Buscar productos..."
+          aria-label="Buscar productos"
+          value={find}
+          onChange={(e) => setFind(e.target.value)}
+        />
+        <button className="btn btn-outline-secondary" type="button">
+          <FaSearch />
+        </button>
+      </div>
+    </section>
 
         {/* Lista de productos */}
         <section className="container my-4">
