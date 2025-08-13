@@ -6,7 +6,6 @@ const UserProvider = (props) => {
   const [user, setUser] = useState(null)
 
   const login = async (username, password) => {
-    
     const response = await fetch("https://fakestoreapi.com/auth/login", {
       method: "POST",
       headers: {
@@ -16,10 +15,9 @@ const UserProvider = (props) => {
     })
 
     if (response.ok) {
-      const token = await response.json()
-      setUser(true)
-      return token
-
+      await response.json() 
+      setUser({ username }) 
+      return true
     } else {
       return false
     }
@@ -31,20 +29,28 @@ const UserProvider = (props) => {
 
   const register = async (username, email, password) => {
     const id = crypto.randomUUID()
-    const response = await fetch("https://fakestoreapi.com/users",
-      {method: "POST",
-        headers:{
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify([id,username, email,password])
-      }
-    )
+    const response = await fetch("https://fakestoreapi.com/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        id,
+        username,
+        email,
+        password,
+      })
+    })
     const data = await response.json()
+
     if (response.ok) {
-      setUser(true)
+      
+      setUser({ id, username, email, password })
+      return data
+    } else {
+      return null
     }
   }
-
 
   return (
     <UserContext.Provider value={{ login, logout, register, user }}>
@@ -52,6 +58,7 @@ const UserProvider = (props) => {
     </UserContext.Provider>
   )
 }
+
 const useAuth = () => useContext(UserContext)
 
-export {UserProvider, useAuth}
+export { UserProvider, useAuth }

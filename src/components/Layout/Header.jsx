@@ -37,6 +37,7 @@ const Header = () => {
                 <Nav.Link as={Link} to="/">Inicio</Nav.Link>
                 <Nav.Link as={Link} to="/Dashboard">Dashboard</Nav.Link>
                 <Nav.Link as={Link} to="/AboutUs">Sobre Nosotros</Nav.Link>
+                <Nav.Link as={Link} to="/Profile">Mi Perfil</Nav.Link>
                 <Button
                   variant="outline-danger"
                   className="ms-2"
