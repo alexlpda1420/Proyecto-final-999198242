@@ -1,5 +1,6 @@
 import { Layout } from "../components/Layout/Layout"
 import { Link } from "react-router-dom"
+import logo from "../assets/images/Virtua-Tienda.webp"
 
 const PageNotFound = () => {
   return (
@@ -9,7 +10,7 @@ const PageNotFound = () => {
         <div className="card shadow-sm border-0 p-4">
           <div className="card-body">
             <img
-            src="/src/assets/images/virtua-tienda.webp"
+            src={logo}
             alt="Nuestra Tienda"
             className="mx-auto mb-4"
             style={{

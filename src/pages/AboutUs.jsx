@@ -1,4 +1,5 @@
 import { Layout } from "../components/Layout/Layout";
+import logo from "../assets/images/Virtua-Tienda.webp"
 
 const AboutUs = () => {
   return (
@@ -63,7 +64,7 @@ const AboutUs = () => {
         {/* Sección de imagen destacada */}
         <div className="text-center mb-5">
           <img
-            src="/src/assets/images/virtua-tienda.webp"
+            src={logo}
             alt="Nuestra Tienda"
             className="mx-auto mb-4"
             style={{
