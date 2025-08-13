@@ -1,5 +1,6 @@
 import { Footer } from "./Footer"
 import { Header } from "./Header"
+import WhatsAppButton from "../WhatsAppButton";
 
 const Layout = (props) => {
   return (
@@ -8,7 +9,8 @@ const Layout = (props) => {
       <main className="container my-4">
         {props.children}
       </main>
-      <Footer/>
+      <Footer />
+      <WhatsAppButton />
     </>
     
   )
