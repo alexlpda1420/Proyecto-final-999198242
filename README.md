@@ -2,13 +2,14 @@
 
 ## Índice
 
-- [Datos Personales](#datos-personales)
-- [Objetivo general](#objetivo-general)
-- [Funcionalidades implementadas](#funcionalidades-implementadas)
-- [Tecnologías utilizadas](#tecnologías-utilizadas)
-- [Instrucciones para ejecutar localmente](#instrucciones-para-ejecutar-localmente)
-- [Sobre el proyecto](#sobre-el-proyecto)
-- [API utilizada](#api-utilizada)
+- :id: [Datos Personales](#datos-personales)
+- :dart: [Objetivo general](#objetivo-general)
+- :white_check_mark: [Funcionalidades implementadas](#funcionalidades-implementadas)
+- :gear: [Tecnologías utilizadas](#tecnologías-utilizadas)
+- :computer: [Instrucciones para ejecutar localmente](#instrucciones-para-ejecutar-localmente)
+- :book: [Sobre el proyecto](#sobre-el-proyecto)
+- :globe_with_meridians: [API utilizada](#api-utilizada)
+- :link: [URL - Deployed](#url)
 
 ## Datos Personales
 Alexis Esteban Roldan 
@@ -73,4 +74,12 @@ Este es un proyecto de e-commerce desarrollado como parte del curso de React. Se
 * [**Fake Store API:**](https://fakestoreapi.com/products)
   Se utiliza para obtener un listado inicial de productos y simular operaciones CRUD.
 
+  ## URL - Deployed
 
+  Aqui podran ingresar e interactuar a la aplicacion ya subida a Vercel o Netifly
+
+**Vercel**:
+https://virtua-tienda-alexisroldan.vercel.app/
+
+**Netlify**:
+https://virtua-tienda-alexisroldan.netlify.app/
