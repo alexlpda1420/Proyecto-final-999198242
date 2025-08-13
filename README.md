@@ -25,13 +25,12 @@ Desarrollar una plataforma web en **React** que simula una tienda online con un 
 
 - Listado de productos obtenidos desde la **Fake Store API**.
 - Búsqueda en tiempo real para filtrar productos.
-- Agregar productos manualmente, guardados en la memoria local de la aplicación.
+- Agregar productos manualmente.
 - Vista previa del producto guardado.
 - Edición y eliminación de productos existentes.
 - Navegación fluida con **React Router DOM**.
 - Diseño moderno y adaptable con **Bootstrap 5**.
-- Uso de componentes reutilizables y manejo eficiente del estado con Hooks de React.
-- Seccion de Mi Perfil donde se visualizan los datos de usuario.
+- Sección de Mi Perfil donde se visualizan los datos de usuario.
 
 ## Tecnologías utilizadas
 
@@ -74,7 +73,7 @@ Este es un proyecto de e-commerce desarrollado como parte del curso de React. Se
 * [**Fake Store API:**](https://fakestoreapi.com/products)
   Se utiliza para obtener un listado inicial de productos y simular operaciones CRUD.
 
-  ## URL - Deployed
+## URL - Deployed
 
   Aqui podran ingresar e interactuar a la aplicacion ya subida a Vercel o Netifly
 
