@@ -9,7 +9,7 @@
 - :computer: [Instrucciones para ejecutar localmente](#instrucciones-para-ejecutar-localmente)
 - :book: [Sobre el proyecto](#sobre-el-proyecto)
 - :globe_with_meridians: [API utilizada](#api-utilizada)
-- :link: [URL - Deployed](#url)
+- :link: [URL Deployed](#url-deployed)
 
 ## Datos Personales
 Alexis Esteban Roldan 
@@ -73,7 +73,7 @@ Este es un proyecto de e-commerce desarrollado como parte del curso de React. Se
 * [**Fake Store API:**](https://fakestoreapi.com/products)
   Se utiliza para obtener un listado inicial de productos y simular operaciones CRUD.
 
-## URL - Deployed
+## URL Deployed
 
   Aqui podran ingresar e interactuar a la aplicacion ya subida a Vercel o Netifly
 
