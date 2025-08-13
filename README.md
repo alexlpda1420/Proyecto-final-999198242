@@ -10,7 +10,7 @@
 - [Sobre el proyecto](#sobre-el-proyecto)
 - [API utilizada](#api-utilizada)
 
-## datos-personales
+## Datos Personales
 Alexis Esteban Roldan 
 34 años
 Especialista en Infraestructura IT y Soporte | Consultor Técnico | Full Stack Developer
@@ -45,9 +45,6 @@ Desarrollar una plataforma web en **React** que simula una tienda online con un 
    ```bash
    git clone https://github.com/alexlpda1420/Proyecto-final-999198242.git
    cd Proyecto-final-999198242
-
-Public
-
    ```
 2. Instalar dependencias:
 
