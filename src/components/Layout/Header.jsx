@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom"
 import { useAuth } from "../../context/UserContext"
 import { Navbar, Nav, Container, Button } from "react-bootstrap"
+import logo from "../../assets/images/Virtua-Tienda.webp"
 
 const Header = () => {
 
@@ -17,13 +18,13 @@ const Header = () => {
         {/* Logo */}
         <Navbar.Brand as={Link} to="/">
           <img
-            src="https://images.seeklogo.com/logo-png/43/2/escudo-river-plate-2022-logo-png_seeklogo-435015.png"
+            src={logo}
             alt="Logo"
             width="40"
             height="40"
             className="d-inline-block align-top me-2"
           />
-          Mi Tienda
+          Virtua-Tienda
         </Navbar.Brand>
 
         {/* Botón colapsable en mobile */}
