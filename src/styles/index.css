@@ -14,3 +14,18 @@ main.container {
   padding: 2rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
+/* Archivo CSS o dentro de tu componente */
+.custom-placeholder::placeholder {
+  color: gray; /* Color gris para el placeholder */
+  font-style: italic; /* Opcional: cursiva */
+}
+
+.custom-placeholder:focus::placeholder {
+  color: #ccc; /* Color más claro al hacer foco en el input */
+  font-weight: bold; /* Opcional: negrita */
+}
+
+/* O si quieres el efecto al pasar el mouse (hover) */
+.custom-placeholder:hover::placeholder {
+  color: lightblue; /* Color diferente al pasar el mouse */
+}

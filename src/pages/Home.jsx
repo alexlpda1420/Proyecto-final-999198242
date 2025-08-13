@@ -1,25 +1,30 @@
-import { Layout } from "../components/Layout/Layout";
 import { useEffect, useMemo, useState } from "react";
+import { Layout } from "../components/Layout/Layout";
 import { useAuth } from "../context/UserContext";
-import logo from "../assets/images/Virtua-Tienda.webp"
+
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [productToEdit, setProductToEdit] = useState(null);
-  const [showPopup, setShowPopup] = useState(null);
+  const [showPopup, setShowPopup] = useState(false);
+
   const [titleEdit, setTitleEdit] = useState("");
   const [priceEdit, setPriceEdit] = useState("");
   const [descriptionEdit, setDescriptionEdit] = useState("");
   const [categoryEdit, setCategoryEdit] = useState("");
   const [imageEdit, setImageEdit] = useState("");
+  const [errors, setErrors] = useState({});
+
   const { user } = useAuth();
   const [find, setFind] = useState("");
 
   const fetchingProducts = async () => {
-    const response = await fetch("https://fakestoreapi.com/products", {
-      method: "GET",
-    });
-    const data = await response.json();
-    setProducts(data);
+    try {
+      const response = await fetch("https://fakestoreapi.com/products");
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error al cargar productos:", error);
+    }
   };
 
   useEffect(() => {
@@ -36,13 +41,11 @@ const Home = () => {
     const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
       method: "DELETE",
     });
-
     if (response.ok) {
-      setProducts((prevProduct) =>
-        prevProduct.filter((product) => product.id != id)
-      );
+      setProducts((prev) => prev.filter((product) => product.id !== id));
     }
   };
+
   const handleOpenEdit = (product) => {
     setShowPopup(true);
     setProductToEdit(product);
@@ -51,9 +54,28 @@ const Home = () => {
     setDescriptionEdit(product.description);
     setCategoryEdit(product.category);
     setImageEdit(product.image);
+    setErrors({});
   };
+
+  const validateEditForm = () => {
+    const newErrors = {};
+    if (!titleEdit.trim()) newErrors.title = "El título es obligatorio.";
+    if (!priceEdit || Number(priceEdit) <= 0)
+      newErrors.price = "El precio debe ser mayor a 0.";
+    if (!descriptionEdit.trim())
+      newErrors.description = "La descripción es obligatoria.";
+    if (!categoryEdit.trim())
+      newErrors.category = "La categoría es obligatoria.";
+    if (!imageEdit.trim() || !/^https?:\/\/.+\.(jpg|jpeg|png|webp)$/i.test(imageEdit))
+      newErrors.image = "Debe ser una URL de imagen válida.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleUpdate = async (e) => {
     e.preventDefault();
+    if (!validateEditForm()) return;
+
     const updatedProduct = {
       id: productToEdit.id,
       title: titleEdit,
@@ -68,24 +90,20 @@ const Home = () => {
         `https://fakestoreapi.com/products/${productToEdit.id}`,
         {
           method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(updatedProduct),
         }
       );
 
       if (response.ok) {
         const data = await response.json();
-        setProducts((prevProduct) =>
-          prevProduct.map((product) =>
-            product.id === productToEdit.id ? data : product
-          )
+        setProducts((prev) =>
+          prev.map((p) => (p.id === productToEdit.id ? data : p))
         );
+        setShowPopup(false);
       }
-      setShowPopup(false);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
@@ -96,7 +114,7 @@ const Home = () => {
         <section className="container my-4 text-center">
           <h1 className="mb-3">Bienvenido a Virtua-Tienda</h1>
           <img
-            src={logo}
+            src="/src/assets/images/virtua-tienda.webp"
             alt="Nuestra Tienda"
             className="mx-auto mb-4"
             style={{
@@ -191,77 +209,106 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Modal edición */}
-        {showPopup && (
-          <div
-            className="modal fade show d-block"
-            tabIndex="-1"
-            style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
-          >
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <form onSubmit={handleUpdate}>
-                  <div className="modal-header">
-                    <h5 className="modal-title">Editar producto</h5>
-                    <button
-                      type="button"
-                      className="btn-close"
-                      onClick={() => setShowPopup(false)}
-                    ></button>
-                  </div>
-                  <div className="modal-body">
-                    <input
-                      className="form-control mb-2"
-                      type="text"
-                      placeholder="Título"
-                      value={titleEdit}
-                      onChange={(e) => setTitleEdit(e.target.value)}
-                    />
-                    <input
-                      className="form-control mb-2"
-                      type="number"
-                      placeholder="Precio"
-                      value={priceEdit}
-                      onChange={(e) => setPriceEdit(e.target.value)}
-                    />
-                    <textarea
-                      className="form-control mb-2"
-                      placeholder="Descripción"
-                      value={descriptionEdit}
-                      onChange={(e) => setDescriptionEdit(e.target.value)}
-                    ></textarea>
-                    <input
-                      className="form-control mb-2"
-                      type="text"
-                      placeholder="Categoría"
-                      value={categoryEdit}
-                      onChange={(e) => setCategoryEdit(e.target.value)}
-                    />
-                    <input
-                      className="form-control"
-                      type="text"
-                      placeholder="URL de la imagen"
-                      value={imageEdit}
-                      onChange={(e) => setImageEdit(e.target.value)}
-                    />
-                  </div>
-                  <div className="modal-footer">
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      onClick={() => setShowPopup(false)}
-                    >
-                      Cancelar
-                    </button>
-                    <button type="submit" className="btn btn-primary">
-                      Actualizar
-                    </button>
-                  </div>
-                </form>
-              </div>
+ {/* Modal edición con validación */}
+      {showPopup && (
+        <div
+          className="modal fade show d-block"
+          tabIndex="-1"
+          style={{ backgroundColor: "rgba(0,0,0,0.5)" }}
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <form onSubmit={handleUpdate} noValidate>
+                <div className="modal-header">
+                  <h5 className="modal-title">Editar producto</h5>
+                  <button
+                    type="button"
+                    className="btn-close"
+                    onClick={() => setShowPopup(false)}
+                  ></button>
+                </div>
+                <div className="modal-body">
+                  <input
+                    className={`form-control mb-2 ${
+                      errors.title ? "is-invalid" : ""
+                    }custom-placeholder` }
+                    type="text"
+                    placeholder="Título"
+                    value={titleEdit}
+                    onChange={(e) => setTitleEdit(e.target.value)}
+                  />
+                  {errors.title && (
+                    <div className="invalid-feedback">{errors.title}</div>
+                  )}
+
+                  <input
+                    className={`form-control mb-2 ${
+                      errors.price ? "is-invalid" : ""
+                    } custom-placeholder`}
+                    type="number"
+                    placeholder="Precio"
+                    value={priceEdit}
+                    onChange={(e) => setPriceEdit(e.target.value)}
+                  />
+                  {errors.price && (
+                    <div className="invalid-feedback">{errors.price}</div>
+                  )}
+
+                  <textarea
+                    className={`form-control mb-2 ${
+                      errors.description ? "is-invalid" : ""
+                    } custom-placeholder`}
+                    placeholder="Descripción"
+                    value={descriptionEdit}
+                    onChange={(e) => setDescriptionEdit(e.target.value)}
+                  ></textarea>
+                  {errors.description && (
+                    <div className="invalid-feedback">{errors.description}</div>
+                  )}
+
+                  <input
+                    className={`form-control mb-2 ${
+                      errors.category ? "is-invalid" : ""
+                    } custom-placeholder`}
+                    type="text"
+                    placeholder="Categoría"
+                    value={categoryEdit}
+                    onChange={(e) => setCategoryEdit(e.target.value)}
+                  />
+                  {errors.category && (
+                    <div className="invalid-feedback">{errors.category}</div>
+                  )}
+
+                  <input
+                    className={`form-control ${
+                      errors.image ? "is-invalid" : ""
+                    } custom-placeholder`}
+                    type="text"
+                    placeholder="URL de la imagen"
+                    value={imageEdit}
+                    onChange={(e) => setImageEdit(e.target.value)}
+                  />
+                  {errors.image && (
+                    <div className="invalid-feedback">{errors.image}</div>
+                  )}
+                </div>
+                <div className="modal-footer">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => setShowPopup(false)}
+                  >
+                    Cancelar
+                  </button>
+                  <button type="submit" className="btn btn-primary">
+                    Actualizar
+                  </button>
+                </div>
+              </form>
             </div>
           </div>
-        )}
+        </div>
+      )}
       </Layout>
     </>
   );

@@ -1,27 +1,52 @@
 import { useState } from "react"
 import { Layout } from "../components/Layout/Layout"
 import { useAuth } from "../context/UserContext"
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 const Login = () => {
-
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-
+  const [errors, setErrors] = useState({})
+  const [loginError, setLoginError] = useState("")
   const { login } = useAuth()
-
   const navigate = useNavigate()
+
+  const validateForm = () => {
+    const newErrors = {}
+
+    if (!username.trim()) {
+      newErrors.username = "El nombre de usuario es obligatorio."
+    } else if (username.length < 3) {
+      newErrors.username = "Debe tener al menos 3 caracteres."
+    }
+
+    if (!password.trim()) {
+      newErrors.password = "La contraseña es obligatoria."
+    } else if (password.length < 6) {
+      newErrors.password = "Debe tener al menos 6 caracteres."
+    }
+
+    setErrors(newErrors)
+    return Object.keys(newErrors).length === 0
+  }
 
   const handleLogin = async (e) => {
     e.preventDefault()
+    setLoginError("") // Limpiar errores previos
+
+    if (!validateForm()) return
+
     const isLogin = await login(username, password)
+
     if (isLogin) {
       setUsername("")
-    setPassword("")
-    navigate("/")
-    } 
+      setPassword("")
+      navigate("/")
+    } else {
+      setLoginError("Usuario o contraseña incorrectos. Por favor, verifica tus datos.")
+    }
   }
-  
+
   return (
     <Layout>
       <div className="container mt-5">
@@ -39,25 +64,37 @@ const Login = () => {
                   Usuario: hopkins <br /> Contraseña: William56$hj
                 </div>
 
-                <form onSubmit={handleLogin}>
+                {loginError && (
+                  <div className="alert alert-danger py-2">{loginError}</div>
+                )}
+
+                <form onSubmit={handleLogin} noValidate>
                   <div className="mb-3">
                     <label className="form-label">Nombre de Usuario:</label>
                     <input
+                    placeholder="El nombre debe contener 3 caracteres"
                       type="text"
-                      className="form-control"
+                      className={`form-control ${errors.username ? "is-invalid" : ""} custom-placeholder`}
                       onChange={(e) => setUsername(e.target.value)}
                       value={username}
                     />
+                    {errors.username && (
+                      <div className="invalid-feedback">{errors.username}</div>
+                    )}
                   </div>
 
                   <div className="mb-3">
                     <label className="form-label">Contraseña:</label>
                     <input
+                    placeholder="La contraseña debe contener 6 caracteres"
                       type="password"
-                      className="form-control"
+                      className={`form-control ${errors.password ? "is-invalid" : ""} custom-placeholder`}
                       onChange={(e) => setPassword(e.target.value)}
                       value={password}
                     />
+                    {errors.password && (
+                      <div className="invalid-feedback">{errors.password}</div>
+                    )}
                   </div>
 
                   <div className="d-grid">
