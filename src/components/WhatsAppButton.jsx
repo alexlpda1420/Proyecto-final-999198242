@@ -3,7 +3,7 @@ import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "5491123456789"; // Número de WhatsApp con código de país y sin espacios
+  const phoneNumber = "..."; // Número de WhatsApp con código de país y sin espacios
   const message = "Hola, quiero más información sobre sus productos.";
 
   return (
