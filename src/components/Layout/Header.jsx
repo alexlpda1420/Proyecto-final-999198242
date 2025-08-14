@@ -1,17 +1,15 @@
-
 import { Link } from "react-router-dom"
 import { useAuth } from "../../context/UserContext"
 import { Navbar, Nav, Container, Button } from "react-bootstrap"
 import logo from "../../assets/images/Virtua-Tienda.webp"
-import { FaShoppingCart } from "react-icons/fa"
+import { FaShoppingCart, FaHome, FaInfoCircle, FaUser, FaSignOutAlt, FaTachometerAlt, FaSignInAlt, FaUserPlus } from "react-icons/fa"
 
 const Header = () => {
-
-  const { user, logout } = useAuth();
+  const { user, logout } = useAuth()
 
   const handleLogout = () => {
-    logout();
-  };
+    logout()
+  }
 
   return (
     <Navbar bg="light" expand="lg" className="mb-4 shadow-sm">
@@ -25,7 +23,7 @@ const Header = () => {
             height="40"
             className="d-inline-block align-top me-2"
           />
-          Virtua-Tienda
+          Virtua-Tienda-TEST
         </Navbar.Brand>
 
         {/* Botón colapsable en mobile */}
@@ -36,16 +34,24 @@ const Header = () => {
           <Nav className="ms-auto">
             {user ? (
               <>
-                <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-                <Nav.Link as={Link} to="/Dashboard">Dashboard</Nav.Link>
-                <Nav.Link as={Link} to="/AboutUs">Sobre Nosotros</Nav.Link>
-                <Nav.Link as={Link} to="/Profile">Mi Perfil</Nav.Link>
+                <Nav.Link as={Link} to="/" className="d-flex align-items-center">
+                  <FaHome className="me-1" /> Inicio
+                </Nav.Link>
+                <Nav.Link as={Link} to="/Dashboard" className="d-flex align-items-center">
+                  <FaTachometerAlt className="me-1" /> Dashboard
+                </Nav.Link>
+                <Nav.Link as={Link} to="/AboutUs" className="d-flex align-items-center">
+                  <FaInfoCircle className="me-1" /> Sobre Nosotros
+                </Nav.Link>
+                <Nav.Link as={Link} to="/Profile" className="d-flex align-items-center">
+                  <FaUser className="me-1" /> Mi Perfil
+                </Nav.Link>
                 <Button
                   variant="outline-danger"
-                  className="ms-2"
+                  className="ms-2 d-flex align-items-center"
                   onClick={handleLogout}
                 >
-                  Cerrar Sesión
+                  <FaSignOutAlt className="me-1" /> Cerrar Sesión
                 </Button>
                 <Button
                   as={Link}
@@ -53,25 +59,30 @@ const Header = () => {
                   variant="outline-primary"
                   className="ms-2 d-flex align-items-center"
                 >
-                  <FaShoppingCart size={18} className="me-1" />
-                  Carrito
+                  <FaShoppingCart size={18} className="me-1" /> Carrito
                 </Button>
-
-
               </>
             ) : (
-                <>
-                  <Nav.Link as={Link} to="/">Inicio</Nav.Link>
-                  <Nav.Link as={Link} to="/AboutUs">Sobre Nosotros</Nav.Link>
-                <Nav.Link as={Link} to="/Login">Login</Nav.Link>
-                <Nav.Link as={Link} to="/Register">Registrate</Nav.Link>
+              <>
+                <Nav.Link as={Link} to="/" className="d-flex align-items-center">
+                  <FaHome className="me-1" /> Inicio
+                </Nav.Link>
+                <Nav.Link as={Link} to="/AboutUs" className="d-flex align-items-center">
+                  <FaInfoCircle className="me-1" /> Sobre Nosotros
+                </Nav.Link>
+                <Nav.Link as={Link} to="/Login" className="d-flex align-items-center">
+                  <FaSignInAlt className="me-1" /> Login
+                </Nav.Link>
+                <Nav.Link as={Link} to="/Register" className="d-flex align-items-center">
+                  <FaUserPlus className="me-1" /> Registrate
+                </Nav.Link>
               </>
             )}
           </Nav>
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
 export { Header }
