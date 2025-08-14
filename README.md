@@ -13,6 +13,7 @@ Plataforma web de **e-commerce** desarrollada en **React** con un panel de admin
 ## 📑 **Índice**
 
 - [👤 Datos Personales](#-datos-personales)
+- [🏫 Datos Proyecto](#-datos-proyecto)
 - [🎯 Objetivo General](#-objetivo-general)
 - [✅ Funcionalidades Implementadas](#-funcionalidades-implementadas)
 - [⚙️ Tecnologías Utilizadas](#%EF%B8%8F-tecnologías-utilizadas)
@@ -33,6 +34,19 @@ Plataforma web de **e-commerce** desarrollada en **React** con un panel de admin
 | **Ocupación**    | Responsable de Soporte Interno - Grupo Hasar                                 |
 
 ---
+
+## 👤 **Datos Proyecto**
+
+| Campo            | Información                                                                 |
+|------------------|------------------------------------------------------------------------------|
+| **Nombre**       | Trabajo Integrador Final                                                        |
+| **Materia**       | Diplomatura Programación Web Inicial - FrontEnd Developer                                                        |
+| **Comision**         | 999198242                                                                    |
+| **Consigna**    | [Proyecto Final 999198242](https://cursos.utnba.centrodeelearning.com/pluginfile.php/675358/mod_assign/introattachment/0/Proyecto%20final%20-%20999198242.pdf?forcedownload=1) |
+| **Profesores**    | Gabriel Alberini - Lautaro Micelli                               |
+
+---
+
 
 ## 🎯 **Objetivo General**
 
@@ -55,7 +69,7 @@ El sistema permite obtener productos desde una **API externa** y también gestio
 
 ## ⚙️ **Tecnologías Utilizadas**
 
-- ⚛️ **React 18** (con Vite)
+- ⚛️ **React 19** (con Vite)
 - 🎨 **Bootstrap 5**
 - 🛤 **React Router DOM**
 - 🗂 **Context API**
@@ -96,19 +110,19 @@ Fuente inicial de productos para simular operaciones CRUD.
 
 ## 🔗 **URL Deployed**
 
-**Vercel**: virtua-tienda-alexisroldan.vercel.app
+🌐 **Vercel**: [virtua-tienda-alexisroldan.vercel.app](https://virtua-tienda-alexisroldan.vercel.app/)
 
-**Netlify**: virtua-tienda-alexisroldan.netlify.app
+🌐 **Netlify**: [virtua-tienda-alexisroldan.netlify.app](https://virtua-tienda-alexisroldan.netlify.app/)
 
 ---
 
 ## 📌 **Próximas Mejoras**
 
-🛠 Persistencia con base de datos real (MongoDB / Firebase)
+🛠 Persistencia con base de datos real (MongoDB)
 
 🔐 Autenticación avanzada con JWT
 
-💳 Integración con pasarela de pagos
+💳 Integración con métodos de pago
 
 📊 Dashboard con estadísticas de ventas
 
@@ -117,5 +131,5 @@ Fuente inicial de productos para simular operaciones CRUD.
 ## ✍️ **Autor**  
 Alexis Esteban Roldan  
 📧 [a.eroldan@hotmail.com](mailto:a.eroldan@hotmaail.com)  
-💼 [LinkedIn](https://www.linkedin.com/alexis-esteban-roldan/)  
+💼 [LinkedIn](https://www.linkedin.com/in/alexis-esteban-roldan/)  
 💻 [GitHub](https://github.com/alexlpda1420)
