@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Layout } from "../components/Layout/Layout"
 import { useAuth } from "../context/UserContext"
 import { useNavigate } from "react-router-dom"
+import {  FaUserPlus } from "react-icons/fa"
 
 const Register = () => {
   const [username, setUsername] = useState("")
@@ -115,7 +116,7 @@ const Register = () => {
                   </div>
 
                   <div className="d-grid">
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-primary"> <FaUserPlus className="me-1" />
                       Registrarme
                     </button>
                   </div>

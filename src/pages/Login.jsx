@@ -2,6 +2,9 @@ import { useState } from "react"
 import { Layout } from "../components/Layout/Layout"
 import { useAuth } from "../context/UserContext"
 import { useNavigate } from "react-router-dom"
+import { Button } from "react-bootstrap"
+import { FaHome, FaSignInAlt } from "react-icons/fa"
+
 
 const Login = () => {
   const [username, setUsername] = useState("")
@@ -98,9 +101,17 @@ const Login = () => {
                   </div>
 
                   <div className="d-grid">
-                    <button type="submit" className="btn btn-primary">
+                    <button type="submit" className="btn btn-primary"><FaSignInAlt className="me-1" />
                       Ingresar
                     </button>
+                    
+                       <Button 
+  variant="primary"
+  className="mt-3 d-flex align-items-center justify-content-center"
+  onClick={() => navigate("/")}
+>
+  <FaHome className="me-1" /> Volver al inicio
+</Button>
                   </div>
                 </form>
               </div>

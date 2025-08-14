@@ -2,6 +2,7 @@ import { Layout } from "../components/Layout/Layout"
 import logo from "../assets/images/proximamente.webp"
 import { useNavigate } from "react-router-dom"
 import { Button } from "react-bootstrap"
+import { FaHome } from "react-icons/fa"
 
 const Card = () => {
    const navigate = useNavigate()
@@ -33,7 +34,7 @@ const Card = () => {
                 variant="primary"
                 className="mt-3"
                 onClick={() => navigate("/")}
-              >
+              ><FaHome className="me-1" />
                 Volver al inicio
               </Button>
                 

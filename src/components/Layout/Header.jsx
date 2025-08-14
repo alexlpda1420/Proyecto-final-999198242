@@ -23,7 +23,7 @@ const Header = () => {
             height="40"
             className="d-inline-block align-top me-2"
           />
-          Virtua-Tienda-TEST
+          Virtua-Tienda
         </Navbar.Brand>
 
         {/* Botón colapsable en mobile */}

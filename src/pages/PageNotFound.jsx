@@ -1,6 +1,7 @@
 import { Layout } from "../components/Layout/Layout"
 import { Link } from "react-router-dom"
 import logo from "../assets/images/Virtua-Tienda.webp"
+import { FaHome } from "react-icons/fa"
 
 const PageNotFound = () => {
   return (
@@ -28,7 +29,7 @@ const PageNotFound = () => {
             <p className="text-muted mb-4">
               Puede que el enlace esté roto o que el producto ya no exista.
             </p>
-            <Link to="/" className="btn btn-primary btn-lg">
+            <Link to="/" className="btn btn-primary btn-lg"><FaHome className="me-1" />
               Ir a inicio
             </Link>
           </div>
