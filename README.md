@@ -1,84 +1,121 @@
-# Trabajo Final - Virtua-Tienda
+# 🛍️ **Virtua-Tienda – Proyecto Final React**
 
-## Índice
+![Estado](https://img.shields.io/badge/Estado-Activo-brightgreen)
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?logo=bootstrap)
+![Vite](https://img.shields.io/badge/Vite-4-ff69b4?logo=vite)
+![Licencia](https://img.shields.io/badge/Licencia-MIT-yellow)
 
-- :id: [Datos Personales](#datos-personales)
-- :dart: [Objetivo general](#objetivo-general)
-- :white_check_mark: [Funcionalidades implementadas](#funcionalidades-implementadas)
-- :gear: [Tecnologías utilizadas](#tecnologías-utilizadas)
-- :computer: [Instrucciones para ejecutar localmente](#instrucciones-para-ejecutar-localmente)
-- :book: [Sobre el proyecto](#sobre-el-proyecto)
-- :globe_with_meridians: [API utilizada](#api-utilizada)
-- :link: [URL Deployed](#url-deployed)
+Plataforma web de **e-commerce** desarrollada en **React** con un panel de administración para gestión de productos, diseño responsive y datos obtenidos de la **Fake Store API**.
 
-## Datos Personales
-Alexis Esteban Roldan 
-34 años
-Especialista en Infraestructura IT y Soporte | Consultor Técnico | Full Stack Developer
-Responsable de Soporte Interno - Grupo Hasar
+---
 
-## Objetivo general
+## 📑 **Índice**
 
-Desarrollar una plataforma web en **React** que simula una tienda online con un **panel de administración** para gestionar productos (agregar, editar, eliminar) de forma sencilla y accesible. La plataforma permite mostrar productos obtenidos de una API externa y también agregar productos manualmente en memoria local, ofreciendo una experiencia fluida y amigable para usuarios y emprendedores.
+- [👤 Datos Personales](#-datos-personales)
+- [🎯 Objetivo General](#-objetivo-general)
+- [✅ Funcionalidades Implementadas](#-funcionalidades-implementadas)
+- [⚙️ Tecnologías Utilizadas](#%EF%B8%8F-tecnologías-utilizadas)
+- [💻 Instrucciones para Ejecutar Localmente](#-instrucciones-para-ejecutar-localmente)
+- [📖 Sobre el Proyecto](#-sobre-el-proyecto)
+- [🌐 API Utilizada](#-api-utilizada)
+- [🔗 URL Deployed](#-url-deployed)
 
-## Funcionalidades implementadas
+---
 
-- Listado de productos obtenidos desde la **Fake Store API**.
-- Búsqueda en tiempo real para filtrar productos.
-- Agregar productos manualmente.
-- Vista previa del producto guardado.
-- Edición y eliminación de productos existentes.
-- Navegación fluida con **React Router DOM**.
-- Diseño moderno y adaptable con **Bootstrap 5**.
-- Sección de Mi Perfil donde se visualizan los datos de usuario.
+## 👤 **Datos Personales**
 
-## Tecnologías utilizadas
+| Campo            | Información                                                                 |
+|------------------|------------------------------------------------------------------------------|
+| **Nombre**       | Alexis Esteban Roldan                                                        |
+| **Edad**         | 34 años                                                                      |
+| **Profesión**    | Especialista en Infraestructura IT y Soporte \| Consultor Técnico \| Full Stack Developer |
+| **Ocupación**    | Responsable de Soporte Interno - Grupo Hasar                                 |
 
-- **React** (creado con Vite)
-- **Bootstrap 5** para estilos y diseño responsivo
-- **React Router DOM** para navegación SPA
-- **Fake Store API** como fuente de datos inicial
+---
 
-## Instrucciones para ejecutar localmente
+## 🎯 **Objetivo General**
 
-1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/alexlpda1420/Proyecto-final-999198242.git
-   cd Proyecto-final-999198242
-   ```
-2. Instalar dependencias:
+Desarrollar una **tienda online** en **React** con panel de administración para **agregar, editar y eliminar** productos de manera simple y eficiente.  
+El sistema permite obtener productos desde una **API externa** y también gestionar productos manualmente en memoria local.
 
-   ```bash
-   npm install
-   ```
-3. Iniciar el servidor de desarrollo:
+---
 
-   ```bash
-   npm run dev
-   ```
-4. Abrir el proyecto en el navegador en la URL que indique Vite, típicamente:
+## ✅ **Funcionalidades Implementadas**
 
-   ```
-   http://localhost:5173/
-   ```
+- 📦 **Listado dinámico** de productos desde Fake Store API.
+- 🔍 **Búsqueda en tiempo real** para filtrar productos.
+- ➕ **Alta de productos** manualmente con vista previa.
+- ✏️ **Edición** y 🗑️ **eliminación** de productos existentes.
+- 🛒 **Carrito de compras** con navegación fluida.
+- 👤 **Perfil de usuario** con datos personalizados.
+- 📱 **Diseño responsive** con Bootstrap 5.
 
+---
 
-## Sobre el proyecto
+## ⚙️ **Tecnologías Utilizadas**
 
-Este es un proyecto de e-commerce desarrollado como parte del curso de React. Se trata de una tienda online completa que simula una experiencia real de compra con funcionalidades de autenticación, gestión de productos y navegación intuitiva.
+- ⚛️ **React 18** (con Vite)
+- 🎨 **Bootstrap 5**
+- 🛤 **React Router DOM**
+- 🗂 **Context API**
+- 🌐 **Fake Store API**
 
+---
 
-## API utilizada
+## 💻 **Instrucciones para Ejecutar Localmente**
 
-* [**Fake Store API:**](https://fakestoreapi.com/products)
-  Se utiliza para obtener un listado inicial de productos y simular operaciones CRUD.
+```bash
+# 1️⃣ Clonar el repositorio
+git clone https://github.com/alexlpda1420/Proyecto-final-999198242.git
 
-## URL Deployed
+cd Proyecto-final-999198242
 
-  Aqui podran ingresar e interactuar a la aplicacion ya subida a Vercel o Netifly
+# 2️⃣ Instalar dependencias
+npm install
 
-**Vercel**:
-https://virtua-tienda-alexisroldan.vercel.app/
+# 3️⃣ Iniciar servidor de desarrollo
+npm run dev
 
-**Netlify**:
-https://virtua-tienda-alexisroldan.netlify.app/
+# 4️⃣ Abrir en el navegador
+http://localhost:5173/
+```
+## 📖 **Sobre el Proyecto**
+
+Virtua-Tienda es un e-commerce con autenticación, panel de administración y gestión de productos.
+Está optimizado para rendimiento y diseñado con enfoque mobile-first.
+
+---
+
+## 🌐 **API Utilizada**
+
+Fake Store API
+Fuente inicial de productos para simular operaciones CRUD.
+
+---
+
+## 🔗 **URL Deployed**
+
+**Vercel**: virtua-tienda-alexisroldan.vercel.app
+
+**Netlify**: virtua-tienda-alexisroldan.netlify.app
+
+---
+
+## 📌 **Próximas Mejoras**
+
+🛠 Persistencia con base de datos real (MongoDB / Firebase)
+
+🔐 Autenticación avanzada con JWT
+
+💳 Integración con pasarela de pagos
+
+📊 Dashboard con estadísticas de ventas
+
+---
+
+## ✍️ **Autor**  
+Alexis Esteban Roldan  
+📧 [a.eroldan@hotmail.com](mailto:a.eroldan@hotmaail.com)  
+💼 [LinkedIn](https://www.linkedin.com/alexis-esteban-roldan/)  
+💻 [GitHub](https://github.com/alexlpda1420)
