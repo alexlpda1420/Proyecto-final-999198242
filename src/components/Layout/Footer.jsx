@@ -51,7 +51,7 @@ const Footer = () => {
         <div className="col-12 col-md-4">
           <h5>Contacto</h5>
           <p>
-            Desarrollado por <strong>Alexis Roldan</strong>. Puedes cotactarte conmigo <a href="https://github.com/alexlpda1420" target="_blank">desde aqui</a>.
+            Desarrollado por <strong>Alexis Roldan</strong>. Puedes contactarte conmigo <a href="https://github.com/alexlpda1420" target="_blank">desde aqui</a>.
           </p>
         </div>
       </div>

@@ -138,16 +138,16 @@ const Home = () => {
         <section className="container mb-5">
           <div className="row text-center">
             <div className="col-md-4">
-              <h3>🚚 Envíos a todo el país</h3>
-              <p>Recibí tu compra en la puerta de tu casa estés donde estés.</p>
+              <h3>🚚 Envíos a Toda Argentina</h3>
+              <p>Recibí tu compra sin importar en qué rincón del país estés..</p>
             </div>
             <div className="col-md-4">
-              <h3>💳 Pagos seguros</h3>
-              <p >Trabajamos con plataformas que garantizan tu seguridad.</p>
+              <h3>🔒 Compra con Confianza</h3>
+              <p >Tus pagos están seguros con nosotros, utilizamos plataformas de confianza.</p>
             </div>
             <div className="col-md-4">
-              <h3>📞 Atención personalizada</h3>
-              <p>Estamos disponibles para ayudarte en todo momento.</p>
+              <h3>📞 Asesoramiento Personalizado</h3>
+              <p>Nuestro equipo está listo para ayudarte en cada paso de tu compra..</p>
             </div>
           </div>
         </section>
