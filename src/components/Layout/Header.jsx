@@ -60,7 +60,9 @@ const Header = () => {
 
               </>
             ) : (
-              <>
+                <>
+                  <Nav.Link as={Link} to="/">Inicio</Nav.Link>
+                  <Nav.Link as={Link} to="/AboutUs">Sobre Nosotros</Nav.Link>
                 <Nav.Link as={Link} to="/Login">Login</Nav.Link>
                 <Nav.Link as={Link} to="/Register">Registrate</Nav.Link>
               </>
